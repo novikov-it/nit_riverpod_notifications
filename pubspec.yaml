@@ -1,20 +1,29 @@
 name: nit_riverpod_notifications
-description: "A new Flutter package project."
+description: "Package for easy UI notification from anywhere"
 version: 0.0.1
 homepage:
 
 environment:
-  sdk: '>=3.4.1 <4.0.0'
+  sdk: '>=3.0.0 <4.0.0'
   flutter: ">=1.17.0"
 
 dependencies:
+  flash: ^3.1.0
   flutter:
     sdk: flutter
+  flutter_hooks: ^0.20.5
+  flutter_riverpod: ^2.5.1
+  freezed_annotation: ^2.4.1
+  hooks_riverpod: ^2.5.1
+  riverpod_annotation: ^2.3.5
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  flutter_lints: ^3.0.0
+  flutter_lints: ^4.0.0
+  build_runner: ^2.4.8
+  freezed: ^2.4.7
+  riverpod_generator: ^2.3.11
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
