@@ -1,7 +1,7 @@
 name: nit_riverpod_notifications
-description: "Package for easy UI notification from anywhere"
+description: "Riverpod-based tool to show UI messages from anywhere with just one line of code - ref.notifyUser(...)"
 version: 0.0.1
-homepage:
+homepage: https://github.com/novikov-it/nit_riverpod_notifications
 
 environment:
   sdk: '>=3.0.0 <4.0.0'
@@ -11,10 +11,8 @@ dependencies:
   flash: ^3.1.0
   flutter:
     sdk: flutter
-  flutter_hooks: ^0.20.5
-  flutter_riverpod: ^2.5.1
+  flutter_riverpod: ^2.6.1
   freezed_annotation: ^2.4.1
-  hooks_riverpod: ^2.5.1
   riverpod_annotation: ^2.3.5
 
 dev_dependencies:

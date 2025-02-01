@@ -30,7 +30,7 @@ class MyHomePage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    return NitNotificationListenerWidget(
+    return NitNotificationListenerWidget<NitNotification>(
       notificationPresenter: NitNotification.showNotificationFlash,
       child: Scaffold(
         appBar: AppBar(

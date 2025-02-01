@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:flutter_hooks/flutter_hooks.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'state/nit_notifications_state.dart';
 
-class NitNotificationListenerWidget<NotificationClass>
-    extends HookConsumerWidget {
+class NitNotificationListenerWidget<NotificationClass> extends ConsumerWidget {
   const NitNotificationListenerWidget({
     super.key,
     required this.child,
@@ -19,14 +17,11 @@ class NitNotificationListenerWidget<NotificationClass>
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final state = ref.watch(nitNotificationsStateProvider(NotificationClass));
-    // ignore: deprecated_member_use
-    final isMounted = useIsMounted();
-    final context = useContext();
 
     if (state.message != null) {
       WidgetsBinding.instance.addPostFrameCallback(
         (timeStamp) {
-          if (isMounted()) {
+          if (context.mounted) {
             notificationPresenter(context, state.message! as NotificationClass);
             ref
                 .read(nitNotificationsStateProvider(NotificationClass).notifier)

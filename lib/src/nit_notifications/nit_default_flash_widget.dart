@@ -3,8 +3,8 @@ import 'package:flash/flash.dart';
 import 'nit_notification.dart';
 import 'nit_notification_types_enum.dart';
 
-class DefaultErrorFlashWidget extends StatelessWidget {
-  const DefaultErrorFlashWidget({
+class NitDefaultFlashWidget extends StatelessWidget {
+  const NitDefaultFlashWidget({
     super.key,
     required this.notification,
     required this.controller,
@@ -20,15 +20,7 @@ class DefaultErrorFlashWidget extends StatelessWidget {
         extensions: const [FlashBarTheme()],
       ),
       child: FlashBar(
-        margin:
-            // maxWidth != null && MediaQuery.sizeOf(context).width > maxWidth!
-            //     ? EdgeInsets.symmetric(
-            //         horizontal:
-            //             (MediaQuery.sizeOf(context).width - maxWidth!) / 2 + 32,
-            //         vertical: 16,
-            //       )
-            //     :
-            const EdgeInsets.symmetric(
+        margin: const EdgeInsets.symmetric(
           vertical: 16,
           horizontal: 32,
         ),

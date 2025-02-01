@@ -7,8 +7,6 @@ part 'nit_notifications_state.freezed.dart';
 
 @Riverpod(keepAlive: true)
 class NitNotificationsState extends _$NitNotificationsState {
-  // void Function(BuildContext context, String error)? _errorPresenter;
-
   @override
   NitNotificationsStateModel build(Type t) {
     return const NitNotificationsStateModel(
@@ -16,20 +14,12 @@ class NitNotificationsState extends _$NitNotificationsState {
     );
   }
 
-  // setupErrorPresenter(
-  //     void Function(BuildContext context, String error)? function) {
-  //   _errorPresenter = function;
-  // }
-
   notifyUser<MessageClass>(MessageClass message) {
     state = state.copyWith(message: message);
   }
 
   resetNotifications(BuildContext context) {
-    // if (state.error != null && _errorPresenter != null) {
-    // _errorPresenter!(context, state.error!);
     state = state.copyWith(message: null);
-    // }
   }
 }
 

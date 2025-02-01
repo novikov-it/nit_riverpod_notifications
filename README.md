@@ -1,39 +1,30 @@
-<!--
-This README describes the package. If you publish this package to pub.dev,
-this README's contents appear on the landing page for your package.
-
-For information about how to write a good package README, see the guide for
-[writing package pages](https://dart.dev/guides/libraries/writing-package-pages).
-
-For general information about developing packages, see the Dart guide for
-[creating packages](https://dart.dev/guides/libraries/create-library-packages)
-and the Flutter guide for
-[developing packages and plugins](https://flutter.dev/developing-packages).
--->
-
-TODO: Put a short description of the package here that helps potential users
-know whether this package might be useful for them.
+Riverpod-based tool to show UI messages from anywhere with just one line of code - ref.notifyUser(...).
 
 ## Features
-
-TODO: List what your package can do. Maybe include images, gifs, or videos.
+1. Show notifications to users from any part of your application
+2. Allows different handlers for different types of notifications to live together
+3. Fully customizable - you can apply any UI and additional logic
 
 ## Getting started
-
-TODO: List prerequisites and provide or point to information on how to
-start using the package.
-
-## Usage
-
-TODO: Include short and useful examples for package users. Add longer examples
-to `/example` folder.
-
+First, you need to wrap your widget tree in NitNotificationListenerWidget and provide the notificationPresenter
 ```dart
-const like = 'sample';
+return NitNotificationListenerWidget<NitNotification>(
+      notificationPresenter: NitNotification.showNotificationFlash,
+      child: Scaffold(
 ```
+> The code above uses default notificationPresenter, which accepts NitNotification objects. However, you can use any object as a notification - it's configured with type parameter of NitNotificationListenerWidget
+{.is-info}
+That's all, now you can show notifications from anywhere where ref is accessible.
+```dart
+TextButton(
+   onPressed: () => ref.notifyUser(
+     NitNotification.warning(
+        'This is warning',
+     ),
+   ),
+   child: const Text('Show warning'),
+),
+```
+> Object passed to the ref.notifyUser should be of the same type the NitNotificationListenerWidget was set up before.
 
-## Additional information
-
-TODO: Tell users more about the package: where to find more information, how to
-contribute to the package, how to file issues, what response they can expect
-from the package authors, and more.
+> However, you can have several listeners for different notification types in parallel.

@@ -3,7 +3,7 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'nit_notification_types_enum.dart';
-import 'nit_notifications_default_flash_widget.dart';
+import 'nit_default_flash_widget.dart';
 
 class NitNotification {
   const NitNotification(this.type, this.text);
@@ -24,10 +24,9 @@ class NitNotification {
       builder: (context, controller) {
         return Consumer(
           builder: (context, ref, _) {
-            return DefaultErrorFlashWidget(
+            return NitDefaultFlashWidget(
               notification: notification,
               controller: controller,
-              // maxWidth: ref.theme.sizeExpandedWidgetMaxWidth,
             );
           },
         );
