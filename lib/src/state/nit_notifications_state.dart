@@ -14,11 +14,11 @@ class NitNotificationsState extends _$NitNotificationsState {
     );
   }
 
-  notifyUser<MessageClass>(MessageClass message) {
+  void notifyUser<MessageClass>(MessageClass message) {
     state = state.copyWith(message: message);
   }
 
-  resetNotifications(BuildContext context) {
+  void resetNotifications() {
     state = state.copyWith(message: null);
   }
 }

@@ -25,7 +25,7 @@ class NitNotificationListenerWidget<NotificationClass> extends ConsumerWidget {
             notificationPresenter(context, state.message! as NotificationClass);
             ref
                 .read(nitNotificationsStateProvider(NotificationClass).notifier)
-                .resetNotifications(context);
+                .resetNotifications();
           }
         },
       );
