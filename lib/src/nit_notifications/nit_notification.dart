@@ -15,10 +15,10 @@ class NitNotification {
   NitNotification.warning(this.text) : type = NitNotificationTypesEnum.warning;
   NitNotification.success(this.text) : type = NitNotificationTypesEnum.success;
 
-  static Future showNotificationFlash(
+  static Future<bool?> showNotificationFlash(
     BuildContext context,
     NitNotification notification,
-  ) async {
+  ) {
     return context.showFlash<bool>(
       duration: const Duration(seconds: 3),
       builder: (context, controller) {
