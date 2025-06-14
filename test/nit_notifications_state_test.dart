@@ -17,8 +17,7 @@ void main() {
 
     expect(container.read(nitNotificationsStateProvider(String)).message, 'hello');
 
-    final context = tester.element(find.byType(SizedBox));
-    notifier.resetNotifications(context);
+    notifier.resetNotifications();
     await tester.pump();
 
     expect(container.read(nitNotificationsStateProvider(String)).message, isNull);
