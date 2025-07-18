@@ -8,11 +8,13 @@ class NitNotificationListenerWidget<NotificationClass> extends ConsumerWidget {
     super.key,
     required this.child,
     required this.notificationPresenter,
+    this.showNotifications = true,
   });
 
   final Widget child;
   final void Function(BuildContext context, NotificationClass notification)
       notificationPresenter;
+  final bool showNotifications;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -22,7 +24,10 @@ class NitNotificationListenerWidget<NotificationClass> extends ConsumerWidget {
       WidgetsBinding.instance.addPostFrameCallback(
         (timeStamp) {
           if (context.mounted) {
-            notificationPresenter(context, state.message! as NotificationClass);
+            if (showNotifications) {
+              notificationPresenter(
+                  context, state.message! as NotificationClass);
+            }
             ref
                 .read(nitNotificationsStateProvider(NotificationClass).notifier)
                 .resetNotifications();

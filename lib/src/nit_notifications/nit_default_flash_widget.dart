@@ -8,10 +8,12 @@ class NitDefaultFlashWidget extends StatelessWidget {
     super.key,
     required this.notification,
     required this.controller,
+    this.position,
   });
 
   final NitNotification notification;
   final FlashController controller;
+  final FlashPosition? position;
 
   @override
   Widget build(BuildContext context) {
@@ -24,6 +26,7 @@ class NitDefaultFlashWidget extends StatelessWidget {
           vertical: 16,
           horizontal: 32,
         ),
+        position: position ?? FlashPosition.bottom,
         controller: controller,
         behavior: FlashBehavior.floating,
         shape: const RoundedRectangleBorder(
